@@ -1,0 +1,373 @@
+﻿@page
+@model MusicDays.Pages.Musics.JustinModel
+@{
+}
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #wrap {
+            width: 100%;
+            margin: 15px;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+        }
+
+            #wrap:hover {
+                box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.50);
+            }
+
+        /*#button, #button2 {
+            background-color: #04AA6D;
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            position: absolute;
+            top: 10%;
+        }*/
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        p {
+            font-size: 30px;
+            bottom: 10px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+
+        h2 {
+            font-size: 60px;
+            position: absolute;
+            left: 55%;
+            right: 60%;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>Top 10 Songs of Justin Bieber</h2>
+    <img style=" display: block; margin-left: auto; margin-right: auto; width: 800px; height:500px;" src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2021_11/3457904/210318-think-justin-bieber-se-713p.jpg" />
+    <div class="container">
+        <div class="row" style=" width: 100%; margin: 15px; background: #fff; border-radius: 2px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);">
+            <div class="col-sm">
+            </div>
+            <div class="col-sm">
+                <p>Title</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://i0.wp.com/thomasbleach.com/wp-content/uploads/2019/10/1570213266_85390e34d40cb093a7077cd77f8b1d2a.jpg?fit=750%2C750&ssl=1" />
+                <i id="button" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+                <audio id="player">
+                    <source src="/images/10000 Hours - Dan and Shay Ft Justin Bieber.mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>10,000 hours</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://upload.wikimedia.org/wikipedia/en/d/dc/Justin_Bieber_and_Ariana_Grande_-_Stuck_with_You.png" />
+                <i id="button2" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+
+                <audio id="player2">
+                    <source src="/images/Ariana Grande & Justin Bieber - Stuck with U.mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>Stuck With You</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/bb/Confident-Justin-Bieber-Chance-The-Rapper.jpg" />
+                <i id="button3" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+
+                <audio id="player3">
+                    <source src="/images/Justin Bieber - She said it's her first time (Confident) (Lyrics) ft. Chance The Rapper.mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>Confident</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/The_Kid_Laroi_and_Justin_Bieber_-_Stay.png/220px-The_Kid_Laroi_and_Justin_Bieber_-_Stay.png" />
+                <i id="button4" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+
+                <audio id="player4">
+                    <source src="/images/The Kid LAROI, Justin Bieber - Stay (Lyrics).mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>Stay</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Justin_Bieber_-_Anyone.png" />
+                <i id="button5" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+
+                <audio id="player5">
+                    <source src="/images/Justin Bieber - Anyone (Lyrics).mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>Anyone</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://i.scdn.co/image/ab67616d0000b273f46b9d202509a8f7384b90de" />
+                <i id="button6" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+                <audio id="player6">
+                    <source src="/images/Justin Bieber - No Pressure Ft. Big Sean (Audio).mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>No Pressure</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://i.scdn.co/image/ab67616d0000b273f46b9d202509a8f7384b90de" />
+                <i id="button7" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+                <audio id="player7">
+                    <source src="/images/The Feeling.mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>The Feeling</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://i.scdn.co/image/ab67616d0000b273f46b9d202509a8f7384b90de" />
+                <i id="button8" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+                <audio id="player8">
+                    <source src="/images/Justin Bieber - What Do You Mean (Official Lyric Video).mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>What Do You Mean?</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://i.scdn.co/image/ab67616d0000b273cd0c179f4cc7c5d4f61b5a28" />
+                <i id="button9" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+                <audio id="player9">
+                    <source src="/images/One Less Lonely Girl - Justin Bieber (Lyrics).mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>One Less Lonely Girl</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://i.scdn.co/image/ab67616d0000b27308e30ab6a058429303d75876" />
+                <i id="button10" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+                <audio id="player10">
+                    <source src="/images/Justin Bieber - Intentions (Lyrics) ft. Quavo.mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>Intentions</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var button = document.getElementById("button");
+        var audio = document.getElementById("player");
+        var button2 = document.getElementById("button2");
+        var audio2 = document.getElementById("player2");
+        var button3 = document.getElementById("button3");
+        var audio3 = document.getElementById("player3");
+        var button4 = document.getElementById("button4");
+        var audio4 = document.getElementById("player4");
+        var button5 = document.getElementById("button5");
+        var audio5 = document.getElementById("player5");
+        var button6 = document.getElementById("button6");
+        var audio6 = document.getElementById("player6");
+        var button7 = document.getElementById("button7");
+        var audio7 = document.getElementById("player7");
+        var button8 = document.getElementById("button8");
+        var audio8 = document.getElementById("player8");
+        var button9 = document.getElementById("button9");
+        var audio9 = document.getElementById("player9");
+        var button10 = document.getElementById("button10");
+        var audio10 = document.getElementById("player10");
+        button.addEventListener("click", function () {
+            if (audio.paused) {
+                audio.play();
+                button.classList.remove('fa-play');
+                button.classList.add('fa-pause');
+            }
+            else {
+                audio.pause();
+                button.classList.remove('fa-pause');
+                button.classList.add('fa-play');
+            }
+        });
+
+        button2.addEventListener("click", function () {
+            if (audio2.paused) {
+                audio2.play();
+                button2.classList.remove('fa-play');
+                button2.classList.add('fa-pause');
+            } else {
+                audio2.pause();
+                button2.classList.remove('fa-pause');
+                button2.classList.add('fa-play');
+            }
+        });
+
+        button3.addEventListener("click", function () {
+            if (audio3.paused) {
+                audio3.play();
+                button3.classList.remove('fa-play');
+                button3.classList.add('fa-pause');
+            } else {
+                audio3.pause();
+                button3.classList.remove('fa-pause');
+                button3.classList.add('fa-play');
+            }
+        });
+
+        button4.addEventListener("click", function () {
+            if (audio4.paused) {
+                audio4.play();
+                button4.classList.remove('fa-play');
+                button4.classList.add('fa-pause');
+            } else {
+                audio4.pause();
+                button4.classList.remove('fa-pause');
+                button4.classList.add('fa-play');
+            }
+        });
+
+        button5.addEventListener("click", function () {
+            if (audio5.paused) {
+                audio5.play();
+                button5.classList.remove('fa-play');
+                button5.classList.add('fa-pause');
+            } else {
+                audio5.pause();
+                button5.classList.remove('fa-pause');
+                button5.classList.add('fa-play');
+            }
+        });
+
+        button6.addEventListener("click", function () {
+            if (audio6.paused) {
+                audio6.play();
+                button6.classList.remove('fa-play');
+                button6.classList.add('fa-pause');
+            } else {
+                audio6.pause();
+                button6.classList.remove('fa-pause');
+                button6.classList.add('fa-play');
+            }
+        });
+
+
+        button7.addEventListener("click", function () {
+            if (audio7.paused) {
+                audio7.play();
+                button7.classList.remove('fa-play');
+                button7.classList.add('fa-pause');
+            } else {
+                audio7.pause();
+                button7.classList.remove('fa-pause');
+                button7.classList.add('fa-play');
+            }
+        });
+
+        button8.addEventListener("click", function () {
+            if (audio8.paused) {
+                audio8.play();
+                button8.classList.remove('fa-play');
+                button8.classList.add('fa-pause');
+            } else {
+                audio8.pause();
+                button8.classList.remove('fa-pause');
+                button8.classList.add('fa-play');
+            }
+        });
+
+        button9.addEventListener("click", function () {
+            if (audio9.paused) {
+                audio9.play();
+                button9.classList.remove('fa-play');
+                button9.classList.add('fa-pause');
+            } else {
+                audio9.pause();
+                button9.classList.remove('fa-pause');
+                button9.classList.add('fa-play');
+            }
+        });
+
+        button10.addEventListener("click", function () {
+            if (audio10.paused) {
+                audio10.play();
+                button10.classList.remove('fa-play');
+                button10.classList.add('fa-pause');
+            } else {
+                audio10.pause();
+                button10.classList.remove('fa-pause');
+                button10.classList.add('fa-play');
+            }
+        });
+        // Get all <audio> elements.
+        const audios = document.querySelectorAll('audio');
+
+        // Pause all <audio> elements except for the one that started playing.
+        function pauseOtherAudios({ target }) {
+            for (const audio of audios) {
+                if (audio !== target) {
+                    audio.pause();
+                    audio.classList.remove('fa-pause');
+                    audio.classList.add('fa-play');
+                }
+            }
+        }
+
+        // Listen for the 'play' event on all the <audio> elements.
+        for (const audio of audios) {
+            audio.addEventListener('play', pauseOtherAudios);
+        }
+    </script>
+</body>
+</html>

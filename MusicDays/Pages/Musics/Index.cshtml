@@ -1,0 +1,165 @@
+﻿@page
+@model MusicDays.Pages.Musics.ArianaModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            background: #eee;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper-container {
+            overflow: visible;
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            cursor: pointer;
+            text-align: center;
+            font-size: 18px;
+            background: transparent;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide {
+            filter: blur(4px);
+        }
+
+        .swiper-slide-active {
+            filter: blur(0);
+        }
+
+
+        .testosotto {
+            margin-top: -15px;
+            color: white;
+            width: 110px;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 22px;
+            text-align: center;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img onclick="arianapage()" style="width:200px;height:200px;" src="https://i.scdn.co/image/ab6761610000e5ebcdce7620dc940db079bf4952" />
+
+            </div>
+            <div class="swiper-slide">
+                <img onclick="justinpage()" style="width:200px;height:200px;" src="https://www.frontview-magazine.be/sites/default/files/news/146614-justin-bieber-most-listened-to-artist-on-spotify-62m-monthly-listeners-1294840.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img onclick="charliepage()" style="width:200px;height:200px;" src="https://i.scdn.co/image/ab67616d0000b273897f73256b9128a9d70eaf66" />
+            </div>
+            <div class="swiper-slide">
+                <img onclick="dojopage()" style="width:200px;height:200px;" src="https://lite-images-i.scdn.co/image/ab67616d00001e024c767857a41ec9da231adb6a" />
+            </div>
+
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <!--<div class="swiper-button-next"></div> -->
+        <!--<div class="swiper-button-prev"></div> -->
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+       
+    function arianapage(){
+        window.location.href = "../Musics/Ariana";
+        }
+        function justinpage() {
+            window.location.href = "../Musics/Justin";
+        }
+        function charliepage() {
+            window.location.href = "../Musics/Charlie";
+        }
+        function dojopage() {
+            window.location.href = "../Musics/DojoCat";
+        }
+    var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    centeredSlides: true,
+    spaceBetween: 220,
+    slidesPerGroup: 1,
+    loop: true,
+    loopFillGroupWithBlank: false,
+    pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    },
+    navigation: {
+    nextEl: '',
+    prevEl: '',
+    },
+    });
+    </script>
+</body>
+
+</html>

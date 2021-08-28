@@ -1,0 +1,359 @@
+﻿@page
+@model MusicDays.Pages.Musics.CharlieModel
+@{
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #wrap {
+            width: 100%;
+            margin: 15px;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+        }
+
+            #wrap:hover {
+                box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.50);
+            }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        p {
+            font-size: 30px;
+            bottom: 10px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+
+        h2 {
+            font-size: 60px;
+            position: absolute;
+            left: 50%;
+            right: 60%;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>Top 10 Songs of Charlie Puth</h2>
+    <img style=" display: block; margin-left: auto; margin-right: auto; width: 500px; height:500px;" src="https://assets.teenvogue.com/photos/55d5ebc8ca15223514647be6/4:3/w_1423,h_1067,c_limit/Charlie%20Puth%20-%20Nine%20Track%20Mind%20-%20Album%20Artwork.jpg" />
+    <div class="container">
+        <div class="row" style=" width: 100%; margin: 15px; background: #fff; border-radius: 2px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);">
+            <div class="col-sm">
+            </div>
+            <div class="col-sm">
+                <p>Title</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://i1.sndcdn.com/artworks-000587612903-6jt6gl-t500x500.jpg" />
+                <i id="button" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+                <audio id="player">
+                    <source src="/images/Charlie Puth I Warned Myself [Official Video].mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>I Warned Myself</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC-9ddFLA-9WpxWpeHqXWj9TEj6enJiddQzw&usqp=CAU" />
+                <i id="button2" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+
+                <audio id="player2">
+                    <source src="/images/Attention - Charlie Puth (Lyrics).mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>Attention</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://i1.sndcdn.com/artworks-000606602386-58veao-t500x500.jpg" />
+                <i id="button3" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+
+                <audio id="player3">
+                    <source src="/images/Charlie Puth - Cheating on You [Official Video].mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>Cheating On You</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC-9ddFLA-9WpxWpeHqXWj9TEj6enJiddQzw&usqp=CAU" />
+                <i id="button4" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+
+                <audio id="player4">
+                    <source src="/images/Charlie Puth - We Don't Talk Anymore (Lyrics) feat. Selena Gomez.mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>We Dont Talk Anymore</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC-9ddFLA-9WpxWpeHqXWj9TEj6enJiddQzw&usqp=CAU" />
+                <i id="button5" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+
+                <audio id="player5">
+                    <source src="/images/Charlie Puth - How Long [Official Video].mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>How Long</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC-9ddFLA-9WpxWpeHqXWj9TEj6enJiddQzw&usqp=CAU" />
+                <i id="button6" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+                <audio id="player6">
+                    <source src="/images/Charlie Puth & blackbear - Hard On Yourself [Official Audio].mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>Hard On Yourself</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC-9ddFLA-9WpxWpeHqXWj9TEj6enJiddQzw&usqp=CAU" />
+                <i id="button7" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+                <audio id="player7">
+                    <source src="/images/Charlie Puth - Losing My Mind [Official Audio].mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>Losing My Mind</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC-9ddFLA-9WpxWpeHqXWj9TEj6enJiddQzw&usqp=CAU" />
+                <i id="button8" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+                <audio id="player8">
+                    <source src="/images/Charlie Puth - Done For Me (feat. Kehlani) [Official Video].mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>Done For Me</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC-9ddFLA-9WpxWpeHqXWj9TEj6enJiddQzw&usqp=CAU" />
+                <i id="button9" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+                <audio id="player9">
+                    <source src="/images/One Call Away - Charlie Puth (Lyrics).mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>One Call Away</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="wrap">
+            <div class="col-sm">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC-9ddFLA-9WpxWpeHqXWj9TEj6enJiddQzw&usqp=CAU" />
+                <i id="button10" class="fa fa-play" style="position:absolute;right:5px;left:50px;top:35px;font-size:24px;color:aliceblue;"></i>
+                <audio id="player10">
+                    <source src="/images/Charlie Puth - Dangerously [Official Audio].mp3" type='audio/mpeg' />
+                </audio>
+            </div>
+            <div class="col-sm">
+                <p>Dangerously</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var button = document.getElementById("button");
+        var audio = document.getElementById("player");
+        var button2 = document.getElementById("button2");
+        var audio2 = document.getElementById("player2");
+        var button3 = document.getElementById("button3");
+        var audio3 = document.getElementById("player3");
+        var button4 = document.getElementById("button4");
+        var audio4 = document.getElementById("player4");
+        var button5 = document.getElementById("button5");
+        var audio5 = document.getElementById("player5");
+        var button6 = document.getElementById("button6");
+        var audio6 = document.getElementById("player6");
+        var button7 = document.getElementById("button7");
+        var audio7 = document.getElementById("player7");
+        var button8 = document.getElementById("button8");
+        var audio8 = document.getElementById("player8");
+        var button9 = document.getElementById("button9");
+        var audio9 = document.getElementById("player9");
+        var button10 = document.getElementById("button10");
+        var audio10 = document.getElementById("player10");
+        button.addEventListener("click", function () {
+            if (audio.paused) {
+                audio.play();
+                button.classList.remove('fa-play');
+                button.classList.add('fa-pause');
+            }
+            else {
+                audio.pause();
+                button.classList.remove('fa-pause');
+                button.classList.add('fa-play');
+            }
+        });
+
+        button2.addEventListener("click", function () {
+            if (audio2.paused) {
+                audio2.play();
+                button2.classList.remove('fa-play');
+                button2.classList.add('fa-pause');
+            } else {
+                audio2.pause();
+                button2.classList.remove('fa-pause');
+                button2.classList.add('fa-play');
+            }
+        });
+
+        button3.addEventListener("click", function () {
+            if (audio3.paused) {
+                audio3.play();
+                button3.classList.remove('fa-play');
+                button3.classList.add('fa-pause');
+            } else {
+                audio3.pause();
+                button3.classList.remove('fa-pause');
+                button3.classList.add('fa-play');
+            }
+        });
+
+        button4.addEventListener("click", function () {
+            if (audio4.paused) {
+                audio4.play();
+                button4.classList.remove('fa-play');
+                button4.classList.add('fa-pause');
+            } else {
+                audio4.pause();
+                button4.classList.remove('fa-pause');
+                button4.classList.add('fa-play');
+            }
+        });
+
+        button5.addEventListener("click", function () {
+            if (audio5.paused) {
+                audio5.play();
+                button5.classList.remove('fa-play');
+                button5.classList.add('fa-pause');
+            } else {
+                audio5.pause();
+                button5.classList.remove('fa-pause');
+                button5.classList.add('fa-play');
+            }
+        });
+
+        button6.addEventListener("click", function () {
+            if (audio6.paused) {
+                audio6.play();
+                button6.classList.remove('fa-play');
+                button6.classList.add('fa-pause');
+            } else {
+                audio6.pause();
+                button6.classList.remove('fa-pause');
+                button6.classList.add('fa-play');
+            }
+        });
+
+
+        button7.addEventListener("click", function () {
+            if (audio7.paused) {
+                audio7.play();
+                button7.classList.remove('fa-play');
+                button7.classList.add('fa-pause');
+            } else {
+                audio7.pause();
+                button7.classList.remove('fa-pause');
+                button7.classList.add('fa-play');
+            }
+        });
+
+        button8.addEventListener("click", function () {
+            if (audio8.paused) {
+                audio8.play();
+                button8.classList.remove('fa-play');
+                button8.classList.add('fa-pause');
+            } else {
+                audio8.pause();
+                button8.classList.remove('fa-pause');
+                button8.classList.add('fa-play');
+            }
+        });
+
+        button9.addEventListener("click", function () {
+            if (audio9.paused) {
+                audio9.play();
+                button9.classList.remove('fa-play');
+                button9.classList.add('fa-pause');
+            } else {
+                audio9.pause();
+                button9.classList.remove('fa-pause');
+                button9.classList.add('fa-play');
+            }
+        });
+
+        button10.addEventListener("click", function () {
+            if (audio10.paused) {
+                audio10.play();
+                button10.classList.remove('fa-play');
+                button10.classList.add('fa-pause');
+            } else {
+                audio10.pause();
+                button10.classList.remove('fa-pause');
+                button10.classList.add('fa-play');
+            }
+        });
+        // Get all <audio> elements.
+        const audios = document.querySelectorAll('audio');
+
+        // Pause all <audio> elements except for the one that started playing.
+        function pauseOtherAudios({ target }) {
+            for (const audio of audios) {
+                if (audio !== target) {
+                    audio.pause();
+                    audio.classList.remove('fa-pause');
+                    audio.classList.add('fa-play');
+                }
+            }
+        }
+
+        // Listen for the 'play' event on all the <audio> elements.
+        for (const audio of audios) {
+            audio.addEventListener('play', pauseOtherAudios);
+        }
+    </script>
+</body>
+</html>
