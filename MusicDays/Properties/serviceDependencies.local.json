@@ -1,8 +1,15 @@
 {
   "dependencies": {
     "mssql1": {
-      "type": "mssql.local",
+      "type": "mssql",
       "connectionId": "ConnectionStrings:MusicDaysContext"
+    },
+    "mssql2": {
+      "type": "mssql.local",
+      "connectionId": "MusicDaysContext"
+    },
+    "secrets1": {
+      "type": "secrets.user"
     }
   }
 }

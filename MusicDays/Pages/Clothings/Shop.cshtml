@@ -1,0 +1,1225 @@
+﻿@page
+@model MusicDays.Pages.Clothings.ShopModel
+@{
+    ViewData["Title"] = "Shop";
+}
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <style>
+        body {
+            font-family: 'Raleway', Arial, sans-serif;
+        }
+
+        figure.snip {
+            position: relative;
+            float: left;
+            overflow: hidden;
+            margin: 10px 1%;
+            width: 480px;
+            background: grey;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.15);
+        }
+
+            figure.snip * {
+                transition: all 0.5s ease;
+                box-sizing: border-box;
+            }
+
+        .image {
+            background-color: #000000;
+            width: 50%;
+            overflow: hidden;
+        }
+
+            .image img {
+                max-width: 100%;
+                margin-top: 40px;
+            }
+
+        figcaption {
+            position: absolute;
+            width: 50%;
+            right: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            padding: 10px 35px;
+        }
+
+        figure.snip h4,
+        figure.snip p,
+        figure.snip .price {
+            margin: 0 0 8px;
+        }
+
+        figure.snip h4 {
+            position: absolute;
+            width: 50%;
+            color: #ffffff;
+            top: 10px;
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 1px;
+            z-index: 1;
+        }
+
+        figure.snip p {
+            font-size: 0.7em;
+            font-weight: 500;
+            line-height: 1.6em;
+        }
+
+        figure.snip .price {
+            color: #ffffff;
+            font-size: 1.3em;
+            opacity: 0.8;
+        }
+
+            figure.snip .price s {
+                display: inline-block;
+                padding: 0 8px 0 0;
+                font-size: 0.85em;
+                color: #f39c12;
+            }
+
+        figure.snip .add-to-cart {
+            text-decoration: none;
+            position: absolute;
+            color: #ffffff;
+            bottom: 0;
+            right: 0;
+            font-weight: 600;
+            line-height: 44px;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            width: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        figure.snip img:hover {
+            opacity: 0.6;
+            -webkit-transform: scale(1.3,1.3);
+            transform: scale(1.3,1.3);
+        }
+
+
+        figure.snip .add-to-cart:hover {
+            background-color: black;
+        }
+
+        figure.snip button {
+            position: absolute;
+            bottom: 50px;
+            font-size: 1em;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: rgba(0,0,0,0.6);
+            border: 2px solid white;
+            outline: none;
+        }
+
+            figure.snip button:hover {
+                background-color: white;
+                color: black;
+                border: 2px solid black;
+            }
+
+        .prev {
+            left: 60%;
+        }
+
+        .next {
+            right: 30px;
+        }
+
+        .animation-fly {
+            position: absolute;
+            z-index: 99;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 100%;
+            transition: all 1s ease;
+            animation: zoom 1.5s;
+        }
+
+        @@-webkit-keyframes zoom {
+            0% {
+                transform: scale(0.4);
+            }
+
+            25% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0.5);
+            }
+        }
+
+        @@-webkit-keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(-100%, 0, 0);
+                transform: translate3d(-200%, 0, 0);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+
+        @@-moz-keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(-100%, 0, 0);
+                transform: translate3d(-200%, 0, 0);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+
+        @@-o-keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(-100%, 0, 0);
+                transform: translate3d(-200%, 0, 0);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+
+
+        .container {
+            /* width: 300px;
+        height:500px;
+        position:absolute;
+        right:10px;*/
+            top: 30%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .table {
+            width: 98%;
+            height: 200px;
+            overflow-y: scroll;
+            border: 2px solid black;
+            border-radius: 4px;
+            background: white;
+            padding: 2%;
+        }
+
+        .col1-name {
+            width: 70%;
+            height: 100%;
+            float: left;
+        }
+
+        .col2-price {
+            width: 29%;
+            float: left;
+            height: 100%;
+        }
+
+
+
+        .bin {
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+            .bin span {
+                width: 80%;
+                float: left;
+                text-align: left;
+                padding: 10px;
+            }
+
+            .bin img {
+                width: 10%;
+                float: right;
+            }
+
+        .total, .bin {
+            width: 100%;
+            height: 50px;
+            background: white;
+            color: black;
+            border: 2px solid black;
+            font-weight: bold;
+        }
+
+        .total-text {
+            width: 70%;
+            height: 50px;
+            float: left;
+            border-right: 2px solid black;
+            background: url(https://3.bp.blogspot.com/-cTzL8OfhV_w/WdcNZoY90dI/AAAAAAAABt0/1wTB6htk2YE7C2I8_cAf7FoL8YVxsR5hgCLcBGAs/s1600/13.png) no-repeat;
+            background-size: contain;
+            background-position: right;
+        }
+
+        .total-amount {
+            width: 26%;
+            height: 50px;
+            float: left;
+            padding-top: 10px;
+        }
+
+        .checkout {
+            width: 50%;
+            margin: auto;
+            height: 50px;
+            padding-top: .5em;
+            margin-top: 2em;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            border: solid 2px #232323;
+            color: #232323;
+            border-radius: 0.4em;
+            cursor: pointer;
+            background: white;
+        }
+
+            .checkout:hover {
+                animation: none;
+            }
+
+        .add-animation {
+            animation: jump 0.75s;
+            animation-iteration-count: infinite;
+        }
+
+        .add-animation2 {
+            animation: shaker 0.75s;
+            animation-iteration-count: infinite;
+        }
+
+        .disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        @@-o-keyframes jump {
+            0% {
+                transform: scale(1, 1) translate(0px, 0px);
+            }
+
+            30% {
+                transform: scale(1, 0.8) translate(0px, 8px);
+            }
+
+            75% {
+                transform: scale(1, 1.1) translate(0px, -20px);
+            }
+
+            100% {
+                transform: scale(1, 1) translate(0px, 0px);
+            }
+        }
+
+        @@-webkit-keyframes jump {
+            0% {
+                transform: scale(1, 1) translate(0px, 0px);
+            }
+
+            30% {
+                transform: scale(1, 0.8) translate(0px, 8px);
+            }
+
+            75% {
+                transform: scale(1, 1.1) translate(0px, -20px);
+            }
+
+            100% {
+                transform: scale(1, 1) translate(0px, 0px);
+            }
+        }
+
+        @@-moz-keyframes jump {
+            0% {
+                transform: scale(1, 1) translate(0px, 0px);
+            }
+
+            30% {
+                transform: scale(1, 0.8) translate(0px, 8px);
+            }
+
+            75% {
+                transform: scale(1, 1.1) translate(0px, -20px);
+            }
+
+            100% {
+                transform: scale(1, 1) translate(0px, 0px);
+            }
+        }
+
+        @@-webkit-keyframes shaker {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            29% {
+                transform: rotate(0deg);
+            }
+
+            30% {
+                transform: rotate(3deg);
+            }
+
+            31% {
+                transform: rotate(4deg);
+            }
+
+            33% {
+                transform: rotate(3deg);
+            }
+
+            35% {
+                transform: rotate(0deg);
+            }
+
+            37% {
+                transform: rotate(-3deg);
+            }
+
+            39% {
+                transform: rotate(-4deg);
+            }
+
+            41% {
+                transform: rotate(-3deg);
+            }
+
+            43% {
+                transform: rotate(0deg);
+            }
+
+            45% {
+                transform: rotate(3deg);
+            }
+
+            47% {
+                transform: rotate(4deg);
+            }
+
+            49% {
+                transform: rotate(3deg);
+            }
+
+            51% {
+                transform: rotate(0deg);
+            }
+
+            53% {
+                transform: rotate(-3deg);
+            }
+
+            55% {
+                transform: rotate(-4deg);
+            }
+
+            57% {
+                transform: rotate(-3deg);
+            }
+
+            59% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @@-moz-keyframes shaker {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            29% {
+                transform: rotate(0deg);
+            }
+
+            30% {
+                transform: rotate(3deg);
+            }
+
+            31% {
+                transform: rotate(4deg);
+            }
+
+            33% {
+                transform: rotate(3deg);
+            }
+
+            35% {
+                transform: rotate(0deg);
+            }
+
+            37% {
+                transform: rotate(-3deg);
+            }
+
+            39% {
+                transform: rotate(-4deg);
+            }
+
+            41% {
+                transform: rotate(-3deg);
+            }
+
+            43% {
+                transform: rotate(0deg);
+            }
+
+            45% {
+                transform: rotate(3deg);
+            }
+
+            47% {
+                transform: rotate(4deg);
+            }
+
+            49% {
+                transform: rotate(3deg);
+            }
+
+            51% {
+                transform: rotate(0deg);
+            }
+
+            53% {
+                transform: rotate(-3deg);
+            }
+
+            55% {
+                transform: rotate(-4deg);
+            }
+
+            57% {
+                transform: rotate(-3deg);
+            }
+
+            59% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @@-o-keyframes shaker {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            29% {
+                transform: rotate(0deg);
+            }
+
+            30% {
+                transform: rotate(3deg);
+            }
+
+            31% {
+                transform: rotate(4deg);
+            }
+
+            33% {
+                transform: rotate(3deg);
+            }
+
+            35% {
+                transform: rotate(0deg);
+            }
+
+            37% {
+                transform: rotate(-3deg);
+            }
+
+            39% {
+                transform: rotate(-4deg);
+            }
+
+            41% {
+                transform: rotate(-3deg);
+            }
+
+            43% {
+                transform: rotate(0deg);
+            }
+
+            45% {
+                transform: rotate(3deg);
+            }
+
+            47% {
+                transform: rotate(4deg);
+            }
+
+            49% {
+                transform: rotate(3deg);
+            }
+
+            51% {
+                transform: rotate(0deg);
+            }
+
+            53% {
+                transform: rotate(-3deg);
+            }
+
+            55% {
+                transform: rotate(-4deg);
+            }
+
+            57% {
+                transform: rotate(-3deg);
+            }
+
+            59% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 99;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .wrapper {
+            background-color: white;
+            width: 50%;
+            box-shadow: 10px 10px 0 black;
+            border-bottom: 1px solid white;
+            margin: 1% auto 2% auto;
+            animation: animatezoom .6s;
+            -webkit-animation: animatezoom .6s;
+        }
+
+        @@-webkit-keyframes animatezoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @@-moz-keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        @@-o-keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .wrapper:before {
+            background: linear-gradient(-135deg, #000 10px, transparent 0), linear-gradient(135deg, #000 10px, transparent 0), linear-gradient(-134deg, yellow 13px, transparent 0), linear-gradient(134deg, yellow 13px, transparent 0);
+            background-repeat: repeat;
+            background-size: 21px 32px;
+            content: "";
+            display: block;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 15px;
+        }
+
+        .wrapper:after {
+            background: linear-gradient(-45deg, #000 10px, transparent 0), linear-gradient(45deg, #000 10px, transparent 0), linear-gradient(-45deg, yellow 13px, transparent 0), linear-gradient(45deg, yellow 13px, transparent 0);
+            background-repeat: repeat;
+            background-size: 21px 32px;
+            content: "";
+            display: block;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 30px;
+        }
+
+        .bill-content {
+            width: 95%;
+            margin: auto;
+        }
+
+        .wrapper h1 {
+            text-transform: uppercase;
+        }
+
+        .box-title {
+            text-shadow: 2px 2px 0 yellow;
+        }
+
+        .price-total {
+            background: black;
+            font-size: 1.5em;
+            text-align: center;
+            color: yellow;
+            font-weight: 800;
+            padding: 5px 0;
+            margin: 15px 0;
+        }
+
+            .price-total span {
+                font-size: .75em;
+                color: white;
+            }
+
+        .form-text {
+            padding: 5px;
+            display: block;
+        }
+
+        form {
+            margin: 0 -5px;
+        }
+
+        label {
+            display: block;
+            font-size: .9em;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input {
+            border: 3px solid black;
+            width: 95%;
+            padding: 7px;
+            font-size: 1.1em;
+        }
+
+            input:focus {
+                outline: 0;
+                background: yellow;
+            }
+
+        .wrapper button {
+            font-size: 1.2em;
+            padding: 10px;
+            border: 0;
+            line-height: 1.6;
+            box-shadow: 3px 3px 0 black;
+            cursor: pointer;
+            background: yellow;
+            transition: ease-in all .3s;
+            font-weight: bold;
+        }
+
+            .wrapper button:hover, .wrapper button:focus {
+                background: black;
+                color: yellow;
+                box-shadow: 5px 5px 0 yellow;
+                outline: none;
+            }
+
+        #coupon {
+            border: 3px solid black;
+            background: white;
+            color: black;
+            box-shadow: none;
+            border-radius: 4px;
+            animation: shrink 1s infinite;
+        }
+
+            #coupon:hover {
+                animation: none;
+                background: black;
+                color: yellow;
+                border: 3px solid yellow;
+            }
+
+        #end {
+            float: right;
+            margin-right: 10px;
+        }
+
+        @@-webkit-keyframes shrink {
+            0% {
+                transform: scaleY(1);
+            }
+
+            49% {
+                transform: scale(0.97, 0.97);
+            }
+
+            100% {
+                transform: scaleY(1);
+            }
+        }
+
+        @@-moz-keyframes shrink {
+            0% {
+                transform: scaleY(1);
+            }
+
+            49% {
+                transform: scale(0.97, 0.97);
+            }
+
+            100% {
+                transform: scaleY(1);
+            }
+        }
+
+        @@-o-keyframes shrink {
+            0% {
+                transform: scaleY(1);
+            }
+
+            49% {
+                transform: scale(0.97, 0.97);
+            }
+
+            100% {
+                transform: scaleY(1);
+            }
+        }
+
+        .close {
+            float: right;
+            margin-right: 10px;
+            margin-top: -10px;
+            font-size: 35px;
+            cursor: pointer;
+        }
+
+        #col01, #col02 {
+            width: 46.5%;
+            float: left;
+        }
+
+        #col02 {
+            margin-left: 2%;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            opacity: 0.95;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidebar a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidebar a:hover {
+                    color: #f1f1f1;
+                }
+
+            .sidebar .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            color: black;
+            padding: 10px 15px;
+            border: none;
+        }
+
+            .openbtn:hover {
+                background-color: #444;
+            }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+            position: absolute;
+            top: 40px;
+            right: 2px;
+            opacity: 0.7;
+        }
+    </style>
+
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <!-- add jQuery library -->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <figure class="snip">
+        <!-- first -->
+        <h4>StreetWears</h4>
+        <div class="image">
+            <img class="slide1" src="https://www.stoleninspiration.com/wp-content/uploads/2021/01/Look-For-Less-Hailey-Bieber-StolenInspiration.com-NZ-Fashion-Blog-7.jpg" />
+            <img class="slide1" src="https://www.stoleninspiration.com/wp-content/uploads/2021/01/Look-For-Less-Hailey-Bieber-StolenInspiration.com-NZ-Fashion-Blog-7.jpg" style="display:none;" />
+
+        </div>
+        <button class="prev" onclick="plusDivs(-1)">&#10094;&#10094;</button>
+        <button class="next" onclick="plusDivs(1)">&#10095;&#10095;</button>
+        <figcaption>
+            <p>Hailey Bieber's Classic Street Wear'</p>
+            <div class="price">
+                <s>$50.00</s><div class="real" data-price="45.00">$45.00</div>
+            </div>
+        </figcaption>
+        <a class="add-to-cart" href="#">Add to Cart</a>
+    </figure>
+
+    <figure class="snip">
+        <!-- second -->
+        <h4>Hailey's Boss Hoodie</h4>
+        <div class="image">
+            <img class="slide2" src="https://i.dailymail.co.uk/1s/2022/01/26/20/53407285-10445005-New_work_Hailey_Bieber_stars_in_the_new_star_studded_Hugo_Boss_c-a-3_1643227962792.jpg" />
+            <img class="slide2" src="https://i.dailymail.co.uk/1s/2022/01/26/20/53407285-10445005-New_work_Hailey_Bieber_stars_in_the_new_star_studded_Hugo_Boss_c-a-3_1643227962792.jpg" style="display:none; width:600px;" />
+        </div>
+        <button class="prev" onclick="plusDivs2(-1)">&#10094;&#10094;</button>
+        <button class="next" onclick="plusDivs2(1)">&#10095;&#10095;</button>
+        <figcaption>
+            <p>Hailey's outfit for the Boss campaign phootshot</p>
+            <div class="price">
+                <s>$100.00</s><div class="real" data-price="90.00">$90.00</div>
+            </div>
+        </figcaption>
+        <a class="add-to-cart" href="#">Add to Cart</a>
+    </figure>
+
+    <figure class="snip">
+        <!-- third -->
+        <h4>Couple Hoodies</h4>
+        <div class="image">
+            <img class="slide3" src="https://assets.vogue.com/photos/5f6cd878b9ab5018819a4384/master/w_2621,h_3100,c_limit/GettyImages-1228672583.jpg" />
+            <img class="slide3" src="https://3.bp.blogspot.com/-N9qCtkto7Ew/WdcI-hMoCvI/AAAAAAAABs0/p9B_cdSAejAetKgIXsLg-kE4EiALCQEYwCLcBGAs/s1600/11467019918439-Tweens-Women-Bra-771467019918286-3.jpg" style="display:none;" />
+            <img class="slide3" src="https://2.bp.blogspot.com/-ndjU5cGLj2M/WdcJFXRm-0I/AAAAAAAABs4/8irtHbbFdCAepM0TYPHi8V8WHXlZMv9jACLcBGAs/s1600/11467019918410-Tweens-Women-Bra-771467019918286-4.jpg" style="display:none;" />
+            <img class="slide3" src="https://1.bp.blogspot.com/-6PFblLh5AyI/WdcJPQfI0fI/AAAAAAAABs8/GqzG183dhI0M-Uny5v_JHu2GPez308PKwCLcBGAs/s1600/11467019918460-Tweens-Women-Bra-771467019918286-2.jpg" style="display:none;" />
+        </div>
+        <button class="prev" onclick="myslide.previous()">&#10094;&#10094;</button>
+        <button class="next" onclick="myslide.next()">&#10095;&#10095;</button>
+        <figcaption>
+            <p>Pack of two black push-up bras, each has underwired, extra-padded with seamless cups, adjustable and detachable multiway shoulder straps, double rows of hook-and-eye closures on the back</p>
+            <div class="price">
+                <s>$22.00</s><div class="real" data-price="14.55">$14.55</div>
+            </div>
+        </figcaption>
+        <a class="add-to-cart" href="#">Add to Cart</a>
+    </figure>
+
+    <figure class="snip">
+        <!-- Fourth -->
+        <h4>Cute Couple Outfit</h4>
+        <div class="image">
+            <img class="slide4" src="https://imgix.bustle.com/uploads/getty/2021/10/8/7fc12179-b2b8-48f9-8726-26dd2f38c933-getty-1229686871.jpg?w=414&h=471&fit=crop&crop=faces&auto=format%2Ccompress" />
+            <img class="slide4" src="https://3.bp.blogspot.com/-FgngoWMPHfA/WdcJx0Kt35I/AAAAAAAABtI/ZbeeGsH9woEp0o7V6zPpciPwTu-z9qS8wCLcBGAs/s1600/11488275209032-SASSAFRAS-Women-Tops-8681488275208817-2.jpg" style="display:none;" />
+            <img class="slide4" src="https://2.bp.blogspot.com/-MyvCUOsGHcE/WdcJ49mcbgI/AAAAAAAABtM/K8kUgwYtAA4Rmptuoyx6JWrhn5nHg6H7ACLcBGAs/s1600/11488275209010-SASSAFRAS-Women-Tops-8681488275208817-3.jpg" style="display:none;" />
+            <img class="slide4" src="https://1.bp.blogspot.com/-YwKbzehp4ow/WdcJ-3nn9hI/AAAAAAAABtQ/mEOi0NKzhvEIWiATHxycfxpAKBztA2yBACLcBGAs/s1600/11488275208987-SASSAFRAS-Women-Tops-8681488275208817-4.jpg" style="display:none;" />
+        </div>
+        <button class="prev" onclick="plusDivs3(-1)">&#10094;&#10094;</button>
+        <button class="next" onclick="plusDivs3(1)">&#10095;&#10095;</button>
+        <figcaption>
+            <p>Navy blue and white striped Bardot top, has short sleeves and shoulder straps</p>
+            <div class="price">
+                <s>$35.00</s><div class="real" data-price="26.00">$26.00</div>
+            </div>
+        </figcaption>
+        <a class="add-to-cart" href="#">Add to Cart</a>
+    </figure>
+    <!-- --------------------Shopping cart---------------- -->
+    <div id="main" class="container">
+        <button class="openbtn" onclick="openNav()">
+            <img id="image-cart" src="~/images/shopping-cart.png" />
+            <span id="count-item" data-count="0">0 item</span>
+        </button>
+    </div>
+    <!-- --------------------Check out ---------------- -->
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <div class="table">
+            <span class="empty">Your cart is empty!</span>
+            <img class="empty" src="https://2.bp.blogspot.com/-VYC7hvhUz4U/WdcPLAr86jI/AAAAAAAABuA/G3y27JwIL_0S5OsVIp6maXjsdgLRumaTwCLcBGAs/s1600/emptycart.png" style="width:200px;" />
+            <div class="col1-name"></div>
+            <div class="col2-price"></div>
+        </div>
+        <div class="bin"><span>Clear All</span><img id="bin" src="https://4.bp.blogspot.com/-Luy983wX20I/WdcLbR86CCI/AAAAAAAABto/g-7S5lzDEugWAQrIiwOtPn4JOkQNboxyACLcBGAs/s1600/delete.png" style="width:40px" /></div>
+        <div class="total">
+            <div class="total-text">Total :</div>
+            <div class="total-amount">$ 0</div>
+        </div>
+        <div class="checkout" onclick="document.getElementById('id01').style.display='block'">Check out</div>
+    </div>
+    <!-- -----------------Bill------------- -->
+    <div id="id01" class="modal">
+        <div class="wrapper">
+            <div class="bill-content">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close">&times;</span>
+                <h1 class="box-title">Checkout</h1>
+                <div class="price-total">
+                    <span>PAY</span>
+                    <div class="pay-last">$ 0</div>
+                </div>
+                <form>
+
+                    <div class="form-text">
+                        <label>Card Number</label>
+                        <input name="card-number" type="text" required>
+                    </div>
+                    <div class="form-text">
+                        <label>Card Verification Value</label>
+                        <input name="name" type="text" placeholder="CVV" required>
+                    </div>
+                    <div class="form-text" id="col01">
+                        <label>Expiry Date</label>
+                        <input name="card-number" type="text" placeholder="MM/YY" maxlength="3" required>
+                    </div>
+                    <div class="form-text" id="col02">
+                        <label>Coupon Code</label>
+                        <input name="card-number" type="text">
+                    </div>
+
+                    <button id="end">PAY NOW</button>
+                </form>
+                <button id="coupon">Get coupon code</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        //first:
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("slide1");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+
+        //--------------------------------------------------------------------
+        //second:
+        var slideIndex2 = 1;
+        showDivs2(slideIndex2);
+
+        function plusDivs2(n) {
+            showDivs2(slideIndex2 += n);
+        }
+
+        function showDivs2(n) {
+            var i;
+            var x = document.getElementsByClassName("slide2");
+            if (n > x.length) { slideIndex2 = 1 }
+            if (n < 1) { slideIndex2 = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex2 - 1].style.display = "block";
+        }
+        //--------------------------------------------------------------------
+        //third: using w3.js library
+        myslide = w3.slideshow(".slide3", 0)
+        //--------------------------------------------------------------------
+
+        var slideIndex3 = 1;              //fourth
+        showDivs3(slideIndex3);
+
+        function plusDivs3(n) {
+            showDivs3(slideIndex3 += n);
+        }
+
+        function showDivs3(n) {
+            var i;
+            var x = document.getElementsByClassName("slide4");
+            if (n > x.length) { slideIndex3 = 1 }
+            if (n < 1) { slideIndex3 = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex3 - 1].style.display = "block";
+        }
+
+
+        //====================================================================
+        var bag = [];                    // initialize price array
+        // Animation:
+        $(document).ready(function () {
+            $('.openbtn').click(function () {
+                //$('.container').fadeToggle();
+            });
+
+            $('.checkout').addClass('disabled');
+            $('#bin').addClass('disabled');
+        });
+
+        $(document).on('click', '.add-to-cart', function (e) {
+            e.preventDefault();
+            $('.empty').hide();
+
+            //---------------------------------------------------------
+            if ($(this).hasClass('disable')) {    //disable mutiple clicks
+                return false;
+            }
+            $(document).find('.add-to-cart').addClass('disable');
+            //---------------------------------------------------------
+
+
+
+            var parent = $(this).parents('.snip');
+            var src = parent.find('img').attr('src');
+            var cart = $(document).find('.openbtn');
+
+            var posTop = parent.offset().top;    //return the coordinates of a element
+            var posLeft = parent.offset().left;
+
+            $('<img />', {
+                class: 'animation-fly',
+                src: src
+            }).appendTo('body').css({
+                'top': posTop,
+                'left': parseInt(posLeft)
+            });
+
+            setTimeout(function () {
+                $(document).find('.animation-fly').css({
+                    'top': cart.offset().top,
+                    'left': cart.offset().left
+                });
+                setTimeout(function () {
+                    $(document).find('.animation-fly').remove(); //after fly
+                    var quantity = parseInt(cart.find('#count-item').data('count')) + 1;
+                    //       if(quantity<2){
+                    //         cart.find('#count-item').text(quantity + ' item').data('count', quantity);
+                    //       }else{
+                    //         cart.find('#count-item').text(quantity + ' items').data('count', quantity);
+                    //       }
+                    cart.find('#count-item').text(quantity + (quantity < 2 ? ' item' : ' items')).data('count', quantity);
+
+                    //add item to cart
+                    var name = parent.find('h4').text();
+                    var price = parent.find('.real').text();
+                    var txt3 = document.createElement("hr");
+                    var txt4 = document.createElement("hr");
+
+                    $('.col1-name').append(name, txt3);
+                    $('.col2-price').append(price, txt4);
+                    $('.checkout').addClass('add-animation');
+                    $('.checkout').removeClass('disabled');
+
+                    $('#bin').addClass('add-animation2');
+                    $('#bin').removeClass('disabled');
+
+                    //find total amount
+                    var price2 = parseFloat(parent.find('.real').data('price')); //get "data-price" from <div class="real">
+                    bag.push(price2);
+                    var total = 0;
+                    $(".total-amount").text(function () {
+                        for (var i in bag) {
+                            total += bag[i];    //calculate sum of all numbers in the array
+                        }
+                        var last = "$ " + total.toFixed(2);
+                        $('.pay-last').text(last);
+                        return last;   // return total only -> bug.
+
+                    });
+
+                    $(document).find('.add-to-cart').removeClass('disable');
+                }, 1000);
+            }, 500);
+
+            $('.bin').on('click', function () {
+                $('.col1-name').empty();
+                $('.col2-price').empty();
+                $('.empty').show();
+                $('.checkout').removeClass('add-animation');
+                $('#bin').removeClass('add-animation2');
+                $('.checkout').addClass('disabled');
+                $('#bin').addClass('disabled');
+                bag = [];
+                $('.total-amount').add('.pay-last').text("$ " + bag.length);
+                cart.find('#count-item').text(0 + ' item').data('count', 0);
+            });
+
+        });
+
+        //------------------BILL----------------------
+
+        $(document).ready(function () {
+            $('#coupon').on('click', function () {
+                alert("minhquanghust.blogspot.com Coupon Code:" + '\n' + "25% off: 0511Q-1601CV" + '\n' + "15% off: 0511Q-1701NA" + '\n' + "10% off: 0511Q-1901QA")
+            });
+        })
+
+
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "1200px";
+            document.getElementById("main").style.marginLeft = "1000px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+
+</body>
+</html>

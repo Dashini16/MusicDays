@@ -11,10 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using MusicDays.Models;
-using System.Net.Mail;
-using System.Net;
-using SendGrid;
-using SendGrid.Helpers.Mail;
+
 
 namespace MusicDays.Areas.Identity.Pages.Account
 {
@@ -33,7 +30,6 @@ namespace MusicDays.Areas.Identity.Pages.Account
         [BindProperty]
         public InputModel Input { get; set; }
 
-
         public class InputModel
         {
             [Required]
@@ -46,8 +42,6 @@ namespace MusicDays.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByEmailAsync(Input.Email);
-
-
                 if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
                 {
                     // Don't reveal that the user does not exist or is not confirmed
@@ -70,9 +64,9 @@ namespace MusicDays.Areas.Identity.Pages.Account
                     $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
-
             }
+
             return Page();
-        } 
+        }
     }
- }
+}

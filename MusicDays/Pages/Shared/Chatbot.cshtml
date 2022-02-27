@@ -1,0 +1,285 @@
+﻿@page
+@model MusicDays.Pages.Shared.ChatbotModel
+@{
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        h1, p {
+            font-family: sans-serif;
+            text-align: center;
+            color: #323330;
+            font-size: 100px;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+
+        p {
+            font-size: 40px;
+        }
+
+        #output, #container {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+
+
+        input {
+            background-color: #eee;
+            border: none;
+            font-family: sans-serif;
+            color: #000;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .Click-here {
+            cursor: pointer;
+            background-image: linear-gradient(190deg, #f83600 0%, #fee140 100%);
+            color: #fff;
+            width: 180px;
+            text-align: center;
+            font-size: 16px;
+            padding: 18px 0;
+            margin: 0 auto;
+            transition: background-image 3s ease-in-out;
+            margin-top:680px;
+            margin-left: 980px;
+        }
+
+            .Click-here:hover {
+                transition: background-image 3s ease-in-out;
+                background-image: linear-gradient(90deg, #fee140 0%, #f83600 100%);
+            }
+
+        .custom-model-main {
+            text-align: center;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0; /* z-index: 1050; */
+            -webkit-overflow-scrolling: touch;
+            outline: 0;
+            opacity: 0;
+            -webkit-transition: opacity 0.15s linear, z-index ease-in;
+            -o-transition: opacity 0.15s linear, z-index ease-in;
+            transition: opacity 0.15s linear, z-index ease-IN;
+            z-index: -1;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .model-open {
+            z-index: 99999;
+            opacity: 1;
+            overflow: hidden;
+        }
+
+        .custom-model-inner {
+            -webkit-transform: translate(0, -25%);
+            -ms-transform: translate(0, -25%);
+            transform: translate(0, -25%);
+            -webkit-transition: -webkit-transform 0.3s ease-out;
+            -o-transition: -o-transform 0.3s ease-out;
+            transition: -webkit-transform 0.3s ease-out;
+            -o-transition: transform 0.3s ease-out;
+            transition: transform 0.3s ease-out;
+            transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+            display: inline-block;
+            vertical-align: middle;
+            width: 600px;
+            margin: 30px auto;
+            max-width: 97%;
+        }
+
+        .custom-model-wrap {
+            display: block;
+            width: 100%;
+            position: relative;
+            background-color: #fff;
+            border: 1px solid #999;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+            background-clip: padding-box;
+            outline: 0;
+            text-align: left;
+            padding: 20px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .model-open .custom-model-inner {
+            -webkit-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+            position: relative;
+            z-index: 999;
+        }
+
+        .model-open .bg-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 99;
+        }
+
+        .bg-overlay {
+            background: rgba(0, 0, 0, 0);
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            -webkit-transition: background 0.15s linear;
+            -o-transition: background 0.15s linear;
+            transition: background 0.15s linear;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 0;
+            top: -30px;
+            cursor: pointer;
+            z-index: 99;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        @@media screen and (min-width:800px) {
+            .custom-model-main:before {
+                content: "";
+                display: inline-block;
+                height: auto;
+                vertical-align: middle;
+                margin-right: -0px;
+                height: 100%;
+            }
+        }
+
+        @@media screen and (max-width:799px) {
+            .custom-model-inner {
+                margin-top: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="Click-here">Jenna the ChatBot</div>
+    <div class="custom-model-main">
+        <div class="custom-model-inner">
+            <div class="close-btn">×</div>
+            <div class="custom-model-wrap">
+                <div class="pop-up-content-wrap">
+                    <div id="output"></div>
+                    <div id="container">
+                        <input type="text" id="input" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-overlay"></div>
+    </div>
+
+
+    <!-- jquery for enter key press -->
+    <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+    <script>
+        var questionNum = 0;													// keep count of question, used for IF condition.
+        var question = '<h1>Hi, We are Team MusicDays! What is your name?</h1>';				  // first question
+
+        var output = document.getElementById('output');				// store id="output" in output variable
+        document.getElementById("output").style.fontSize = "small";
+        output.innerHTML = question;													// ouput first question
+
+        function bot() {
+            var input = document.getElementById("input").value;
+            console.log(input);
+
+            if (questionNum == 0) {
+                output.innerHTML = '<h1>Hello, ' + input + '!</h1>';// output response
+                document.getElementById("input").value = "";   		// clear text box
+                question = '<h1>How can we help you today?' + 'If troubleshoot common issues,<button><a href=" ">Click me!</a></button>. You will be able to find ways to troubleshot it on your problem. If it cannot be found, choose any other characters</h1>';// load next question
+                setTimeout(timedQuestion, 2000);									// output next question after 2sec delay
+            }
+
+            else if (questionNum == 1) {
+                output.innerHTML = '<h1> We are sorry that you are not able to solve your issue. Please contact us via the contact form and we will get back to you within a working day </h1>';
+                document.getElementById("input").value = "";
+                //setTimeout(timedQuestion, 2000);
+            }
+        }
+
+        function timedQuestion() {
+            output.innerHTML = question;
+        }
+
+        //push enter key (using jquery), to run bot function.
+        $(document).keypress(function (e) {
+            if (e.which == 13) {
+                bot();																						// run bot function when enter key pressed
+                questionNum++;																		// increase questionNum count by 1
+            }
+        });
+
+
+
+
+        $(".Click-here").on('click', function () {
+            $(".custom-model-main").addClass('model-open');
+        });
+        $(".close-btn, .bg-overlay").click(function () {
+            $(".custom-model-main").removeClass('model-open');
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// TAB
+// $(document).on('click', '.tab-wrap ul li a', function (e) {
+//     var curTabContentId = $(this).attr('href');
+//     $(this).parents('.tab-wrap').find('ul li').removeClass('active');
+//     $(this).parents('li').addClass('active');
+//     $(this).parents('.tab-wrap').find('.tab-content-id').removeClass('active');
+//     $(curTabContentId).addClass("active");
+//     e.preventDefault();
+// });
+    </script>
+
+</body>
+</html>
+

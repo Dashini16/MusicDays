@@ -13,6 +13,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using MusicDays.Models;
 
+
+using Microsoft.AspNetCore.Identity.UI.Services;
+
+using WebPWrecover.Services;
+using MusicDays.Services;
+
 namespace MusicDays
 {
     public class Startup
